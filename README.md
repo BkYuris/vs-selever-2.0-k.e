@@ -1,67 +1,93 @@
-# Friday Night Funkin': VS Selever
-This repository hosts a public copy of the sources and assets used for the VS Selever mod of Friday Night Funkin'.
+# Friday Night Funkin' - Psych Engine
+Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), intended to be a fix for the vanilla version's many issues while keeping the casual play aspect of it. Also aiming to be an easier alternative to newbie coders.
 
-The project itself was built on top of [Kade Engine 1.6](https://github.com/KadeDev/Kade-Engine), and includes a few enhancements on top of it, namely a more flexible dialog system that allows you to add dialogues either before or after any stage in story mode with no need to touch the game's source code. Hopefully that will help us with future mods or updates that may come.
+## Installation:
+You must have [the most up-to-date version of Haxe](https://haxe.org/download/), seriously, stop using 4.1.5, it misses some stuff.
 
-Feel free to navigate the source code in order to fetch any feature you like from our mod.
+Follow a Friday Night Funkin' source code compilation tutorial, after this you will need to install LuaJIT.
 
-## Building
+To install LuaJIT do this: `haxelib install linc_luajit` on a Command prompt/PowerShell
 
-If you want to build a copy of this mod yourself, here's what you need:
+...Or if you don't want your mod to be able to run .lua scripts, delete the "LUA_ALLOWED" line on Project.xml
 
-* Windows 10 or some compatible system. Virtual machines work well enough.
-* [Haxe 4.1.5](https://haxe.org/download/version/4.1.5/)
-* [HaxeFlixel](https://haxeflixel.com/documentation/install-haxeflixel/)
-* [Visual Studio Code](https://code.visualstudio.com)
-* [Visual Code Build Tools 2019](https://visualstudio.microsoft.com/downloads/): Install modules `MSVC v142 - VS 2019 C++ x64/x86 build tools` and `Windows SDK (10.0.17763.0)` only.
-* Run the following commands to install the modules required by Kade Engine:
-```
-haxelib install lime
-haxelib install openfl
-haxelib install flixel
-haxelib install flixel-addons
-haxelib install flixel-ui
-haxelib install hscript
-haxelib install newgrounds
-haxelib run lime setup
-haxelib install flixel-tools
-haxelib install linc_luajit
-haxelib run flixel-tools setup
-haxelib git polymod https://github.com/larsiusprime/polymod.git
-haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
-haxelib git flixel-addons https://github.com/HaxeFlixel/flixel-addons
-haxelib install actuate
-haxelib git extension-webm https://github.com/KadeDev/extension-webm
-haxelib install openfl-webm
-lime rebuild extension-webm windows
-```
-After you've been through all that you will finally be able to build this program. We apologize for so many dependencies, they were out of our control.
+## Credits:
+* Shadow Mario - Coding
+* RiverOaken - Arts and Animations
+* bbpanzu - Assistant Coding
 
-## FAQs about the project
-#### Q: What motivated you guys to create the mod?
-**A:** We have fun creating different things and sharing them, some of us enjoy composing music, others are good with art, others like programming stuff. It all began with a fanmade song one of us made for Selever, the idea for the mod came to be after seeing the positive reception it got. We also thought Selever deserved something better than just a poorly received joke update, so the project leader decided to see who he could get in contact with in order to get enough material for a full week.
+### Special Thanks
+* shubs - New Input System
+* SqirraRNG - Chart Editor's Sound Waveform base code
+* iFlicky - Delay/Combo Menu Song Composer + Dialogue Sounds
+* PolybiusProxy - .MP4 Loader Extension
+* Keoiki - Note Splash Animations
+_____________________________________
 
-#### Q: How long did this took to make?
-**A:** Putting the pieces and code together took about a week, although most of the assets were being worked on for longer. It's safe to say overall this mod took about a month to reach its first release.
+# Features
 
-#### Q: Is this mod canon to Mid-Fight Masses?
-**A:** Since none of the former MFM team members was part of this project, it's definitely not canon. This is just a fanmade mod, made for fun.
+## Attractive animated dialogue boxes:
 
-#### Q: Did you guys get permission before publishing this mod?
-**A:** No. We exhausted all our options to get in contact with the one remaining member of the former Mid-Fight Masses team, Mike Geno, in order to let him know about the project. Unfortunately, we weren't able to get a single message back from him. We tried indirect channels, but none of our contacts had luck contacting him either. The fact none of the core team members has an active Twitter profile probably hindered our efforts as well. So we couldn't get express approval for the mod, as much as we would have loved to.
+![](https://user-images.githubusercontent.com/44785097/127706669-71cd5cdb-5c2a-4ecc-871b-98a276ae8070.gif)
 
-#### Q: Selever has some rather rude words towards people during the third set of dialogues. Who was it aimed to?
-**A:** Selever's angry rant was aimed to the people who harassed the MFM staff over pointless details like poor charting and engine faults, even tho multiple solutions offered by third parties existed at that point; since in our characterization Selever is aware of what happened and he blames the people out there for the demise of his parents, you could say that's a sore spot for him at the moment.
-Since this question has been asked often enough, we have updated the dialogue script in order to reduce the ambiguity. We're sorry for the discomfort this may have caused, unless you were one of those people bashing MFM back in the day. If that's the case, yeah, suck it up.
 
-#### Q: Are there any future plans for this mod?
-**A:** We will most likely update the mod in the future with more free-play mode songs, mainly covers of existing songs out there. Adding new weeks is unlikely to happen though.
+## Mod Support
+* Probably one of the main points of this engine, you can code in .lua files outside of the source code, making your own weeks without even messing with the source!
+* Comes with a Mod Organizing/Disabling Menu. 
 
-#### Q: Do you guys plan to add other characters like Rasazy? Please say yes! / Please don't!
-**A:** We do not plan to add Rasazy or other characters to this mod, since it's meant to be all about Selever. It is called _Friday Night Funkin': VS Selever_, after all. If you were expecting a week for Rasazy, sorry to disappoint you. If you didn't, rest easy.
 
-#### Q: I've heard Blansephx had plans for a Rasazy mod. Were you guys aware of that? Does it have something to do with this mod?
-**A:** While we were aware of Blansephx's idea for a Rasazy mod when he was incorporated to the team; all we asked from him were some illustrations for the Selever mod, since we saw he was well capable of making them. His project is not related to ours, and he does not make any decisions in the direction of this project. He's just the illustrator, so please don't bash him over the existence of this mod.
+## Atleast one change to every week:
+### Week 1:
+  * New Dad Left sing sprite 
+  * Unused stage lights are now used
+### Week 2:
+  * Both BF and Skid & Pump does "Hey!" animations
+  * Thunders does a quick light flash and zooms the camera in slightly
+  * Added a quick transition/cutscene to Monster
+### Week 3:
+  * BF does "Hey!" during Philly Nice
+  * Blammed has a cool new colors flash during that sick part of the song
+### Week 4:
+  * Better hair physics for Mom/Boyfriend (Maybe even slightly better than Week 7's :eyes:)
+  * Henchmen die during all songs. Yeah :(
+### Week 5:
+  * Bottom Boppers and GF does "Hey!" animations during Cocoa and Eggnog
+  * On Winter Horrorland, GF bops her head slower in some parts of the song.
+### Week 6:
+  * On Thorns, the HUD is hidden during the cutscene
+  * Also there's the Background girls being spooky during the "Hey!" parts of the Instrumental
 
-#### Q: This mod is unacceptable! What can I do to stop it?
-**A:** Since the mod is stable and already out in the wild, the best way you can counter its momentum is suffocating it with other, more positive topics. Maybe talk about other mods you like, or share fanart of your favorite characters; but whatever you do it's best to keep calm and try to get others to stay calm as well. There are still a handful of people who are better suited to address any issues with the mod, and they can do it, but putting more stress on their shoulders won't help them one bit. Fueling drama will only bring more attention towards this mod, which in turn will lead to more views and downloads, downloads that in the event of a "cancellation" could lead to clandestine reuploads. That's less than ideal for a mod you wish to get rid of.
+## Cool new Chart Editor changes and countless bug fixes
+![](https://github.com/ShadowMario/FNF-PsychEngine/blob/main/docs/img/chart.png?raw=true)
+* You can now chart "Event" notes, which are bookmarks that trigger specific actions that usually were hardcoded on the vanilla version of the game.
+* Your song's BPM can now have decimal values
+* You can manually adjust a Note's strum time if you're really going for milisecond precision
+* You can change a note's type on the Editor, it comes with two example types:
+  * Alt Animation: Forces an alt animation to play, useful for songs like Ugh/Stress
+  * Hey: Forces a "Hey" animation instead of the base Sing animation, if Boyfriend hits this note, Girlfriend will do a "Hey!" too.
+
+## Multiple editors to assist you in making your own Mod
+![Screenshot_3](https://user-images.githubusercontent.com/44785097/144629914-1fe55999-2f18-4cc1-bc70-afe616d74ae5.png)
+* Working both for Source code modding and Downloaded builds!
+
+## Story mode menu rework:
+![](https://i.imgur.com/UB2EKpV.png)
+* Added a different BG to every song (less Tutorial)
+* All menu characters are now in individual spritesheets, makes modding it easier.
+
+## Credits menu
+![Screenshot_1](https://user-images.githubusercontent.com/44785097/144632635-f263fb22-b879-4d6b-96d6-865e9562b907.png)
+* You can add a head icon, name, description and a Redirect link for when the player presses Enter while the item is currently selected.
+
+## Awards/Achievements
+* The engine comes with 16 example achievements that you can mess with and learn how it works (Check Achievements.hx and search for "checkForAchievement" on PlayState.hx)
+
+## Options menu:
+* You can change Note colors, Delay and Combo Offset, Controls and Preferences there.
+ * On Preferences you can toggle Downscroll, Middlescroll, Anti-Aliasing, Framerate, Low Quality, Note Splashes, Flashing Lights, etc.
+
+## Other gameplay features:
+* When the enemy hits a note, their strum note also glows.
+* Lag doesn't impact the camera movement and player icon scaling anymore.
+* Some stuff based on Week 7's changes has been put in (Background colors on Freeplay, Note splashes)
+* You can reset your Score on Freeplay/Story Mode by pressing Reset button.
+* You can listen to a song or adjust Scroll Speed/Damage taken/etc. on Freeplay by pressing Space.
